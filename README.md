@@ -7,6 +7,8 @@ pip install pytube
 
 pip install moviepy
 
+To run the file, open your terminal and type "python /PATH.../YouTube_Downloader.py". This will initiate the program and allow you to download YouTube videos.
+
 Have fun (:
 
 Small lega disclaimer.

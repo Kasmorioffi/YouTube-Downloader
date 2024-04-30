@@ -11,6 +11,6 @@ To run the file, open your terminal and type "python /PATH.../YouTube_Downloader
 
 Have fun (:
 
-Small lega disclaimer.
+Small legal disclaimer.
 
 You are allowed to download video of youtube for your own private use but you are not allowed to publish them in any way.

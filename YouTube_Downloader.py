@@ -41,7 +41,7 @@ if video is not None and audio is not None:
     final_output_path = os.path.join(path_to_download_folder, f"{filename.replace('|', '-')}.mp4")
     videoclip.write_videofile(final_output_path)
 
-    print("Merged successfully! :)")
+    print("Merged successfully! (:")
 
     videoclip.close()
     audioclip.close()

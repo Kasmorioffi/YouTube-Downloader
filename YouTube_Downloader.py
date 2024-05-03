@@ -5,6 +5,8 @@ import os
 link = input("Enter link here: ")
 filename = input("Enter desired filename here: ")
 
+filename = filename.replace('"', '').replace('&', 'and')
+
 url = YouTube(link)
 
 print("downloading....")
@@ -12,12 +14,36 @@ print("downloading....")
 video = url.streams.filter(res="2160p", mime_type="video/webm").first()
 
 if video is None:
-    print("4K video not available, trying Full HD...")
+    print("4K video not available, trying 1440p...")
+    video = url.streams.filter(res="1440p", mime_type="video/webm").first()
+
+if video is None:
+    print("1440p video not available, trying Full HD...")
     video = url.streams.filter(res="1080p", mime_type="video/webm").first()
+
+if video is None:
+    print("1080p video not available, trying HD...")
+    video = url.streams.filter(res="720p", mime_type="video/webm").first()
+
+if video is None:
+    print("720p video not available, trying 480p...")
+    video = url.streams.filter(res="480p", mime_type="video/webm").first()
+
+if video is None:
+    print("480p video not available, trying 360p...")
+    video = url.streams.filter(res="360p", mime_type="video/webm").first()
+
+if video is None:
+    print("360p video not available, trying 240p...")
+    video = url.streams.filter(res="240p", mime_type="video/webm").first()
+
+if video is None:
+    print("240p video not available, trying 144p...")
+    video = url.streams.filter(res="144p", mime_type="video/webm").first()
 
 audio = url.streams.filter(only_audio=True).order_by('abr').desc().first()
 
-path_to_download_folder = "PATH..." #Put your output path here
+path_to_download_folder = "PATH..." #place your output path here
 
 if video is not None:
     video_file_path = video.download(path_to_download_folder, filename="video")
